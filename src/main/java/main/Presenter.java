@@ -34,6 +34,7 @@ public class Presenter implements ViewObserver {
             case LEFT_MOUSE -> model.openCell(x, y);
             case RIGHT_MOUSE -> model.flagCell(x, y);
             case MIDDLE_MOUSE -> model.openAllCellsAround(x, y);
+            default -> view.showErrorWindow("Unable to interpret click type");
         }
     }
 

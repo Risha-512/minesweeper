@@ -7,29 +7,29 @@ import java.awt.*;
 import java.util.Objects;
 
 public enum ButtonType {
-    ONE(initializeFieldIcon("1.png")),
-    TWO(initializeFieldIcon("2.png")),
-    THREE(initializeFieldIcon("3.png")),
-    FOUR(initializeFieldIcon("4.png")),
-    FIVE(initializeFieldIcon("5.png")),
-    SIX(initializeFieldIcon("6.png")),
-    SEVEN(initializeFieldIcon("7.png")),
-    EIGHT(initializeFieldIcon("8.png")),
-    MINE(initializeFieldIcon("mine.png")),
-    FLAG(initializeFieldIcon("flag.png")),
-    EMPTY(initializeFieldIcon("empty.png")),
-    CLOSED(initializeFieldIcon("closed.png")),
-    SMILE(initializeSmileIcon("smile.png")),
-    WIN(initializeSmileIcon("win.png")),
-    LOSE(initializeSmileIcon("lose.png"));
+    ONE("1.png", ButtonType.FIELD_ICON_SIZE),
+    TWO("2.png", ButtonType.FIELD_ICON_SIZE),
+    THREE("3.png", ButtonType.FIELD_ICON_SIZE),
+    FOUR("4.png", ButtonType.FIELD_ICON_SIZE),
+    FIVE("5.png", ButtonType.FIELD_ICON_SIZE),
+    SIX("6.png", ButtonType.FIELD_ICON_SIZE),
+    SEVEN("7.png", ButtonType.FIELD_ICON_SIZE),
+    EIGHT("8.png", ButtonType.FIELD_ICON_SIZE),
+    MINE("mine.png", ButtonType.FIELD_ICON_SIZE),
+    FLAG("flag.png", ButtonType.FIELD_ICON_SIZE),
+    EMPTY("empty.png", ButtonType.FIELD_ICON_SIZE),
+    CLOSED("closed.png", ButtonType.FIELD_ICON_SIZE),
+    SMILE("smile.png", ButtonType.SMILE_ICON_SIZE),
+    WIN("win.png", ButtonType.SMILE_ICON_SIZE),
+    LOSE("lose.png", ButtonType.SMILE_ICON_SIZE);
 
     public final static int FIELD_ICON_SIZE = 35;
     public final static int SMILE_ICON_SIZE = 64;
 
     private final ImageIcon imageIcon;
 
-    ButtonType(ImageIcon imageIcon) {
-        this.imageIcon = imageIcon;
+    ButtonType(String imageIconPath, int size) {
+        this.imageIcon = initializeIcon(imageIconPath, size);
     }
 
     public ImageIcon getImageIcon() {
@@ -59,14 +59,6 @@ public enum ButtonType {
             case FLAG -> ButtonType.FLAG;
             default -> ButtonType.CLOSED;
         };
-    }
-
-    private static ImageIcon initializeFieldIcon(String path) {
-        return initializeIcon(path, FIELD_ICON_SIZE);
-    }
-
-    private static ImageIcon initializeSmileIcon(String path) {
-        return initializeIcon(path, SMILE_ICON_SIZE);
     }
 
     private static ImageIcon initializeIcon(String path, int size) {

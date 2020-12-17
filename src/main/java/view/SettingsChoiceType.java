@@ -25,11 +25,9 @@ public enum SettingsChoiceType {
     CUSTOM {
         @Override
         public Command<ViewObserver> getCreateGameButtonAction(SettingsPanel settingsPanel) {
-            return (ViewObserver observer) -> {
-                observer.createGame(settingsPanel.getCustomHeight(),
-                            settingsPanel.getCustomWidth(),
-                            settingsPanel.getCustomMinesPercentage());
-            };
+            return (ViewObserver observer) -> observer.createGame(settingsPanel.getCustomHeight(),
+                        settingsPanel.getCustomWidth(),
+                        settingsPanel.getCustomMinesPercentage());
         }
     };
 
