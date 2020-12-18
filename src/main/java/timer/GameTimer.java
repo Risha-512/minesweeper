@@ -7,7 +7,7 @@ public class GameTimer {
     private boolean isTimerStarted;
 
     public GameTimer(Command<Integer> commandOnTick) {
-        this.gameTimerModel = new GameTimerModel(commandOnTick);
+        this.gameTimerModel = new GameTimerModel(1, commandOnTick);
     }
 
     public void initializeTimer() {
